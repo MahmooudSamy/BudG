@@ -1,0 +1,89 @@
+﻿<UserControl x:Class="BudG.UI.Views.SignUpView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+               xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:componant="clr-namespace:BudG.UI.Componant"
+             mc:Ignorable="d" x:Name="CreateNewAccountView" Loaded="CreateNewAccountView_Loaded"
+             >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="10"/>
+            
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="2" Text="Welcome in BudG" TextAlignment="Center" FontWeight="Bold" 
+                           Style="{DynamicResource MaterialDesignHeadline3TextBlock}"/>
+        <TextBlock Grid.Row="3" Text="Create your account! And begin controling your budget" TextAlignment="Center"  
+                           Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
+
+        <TextBox Grid.Row="5" x:Name="TxtFirstName" Height="60" Text="{Binding  UserWrapper.FirstName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
+                 Width="200" Padding="8" FontSize="18" HorizontalAlignment="Left" Margin="55 0 0 0" 
+                 materialDesign:HintAssist.Hint="First Name" BorderThickness="0 0 0 5" materialDesign:ValidationAssist.PopupPlacement="Top"
+                 BorderBrush="{DynamicResource MaterialDesignDivider}" 
+                 materialDesign:TextFieldAssist.UnderlineBrush="#FF0099CC"
+               Style="{StaticResource MaterialDesignFloatingHintTextBox}" KeyDown="TxtFirstName_KeyDown"/>
+
+        <TextBox x:Name="TxtLastName" Grid.Row="5" Height="60" Width="200" Text="{Binding UserWrapper.LastName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" FontSize="18" Padding="8" HorizontalAlignment="Right" Margin="0 0 40 0" 
+                         materialDesign:HintAssist.Hint="Last Name" 
+                 BorderThickness="0 0 0 5" BorderBrush="{DynamicResource MaterialDesignDivider}" 
+                         materialDesign:TextFieldAssist.UnderlineBrush="#FF0099CC"
+               Style="{StaticResource MaterialDesignFloatingHintTextBox}" KeyDown="TxtLastName_KeyDown"/>
+
+        <TextBox x:Name="TxtEmail" Grid.Row="7" Height="60" Width="400" Text="{Binding  UserWrapper.Email,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" FontSize="18" 
+                         materialDesign:HintAssist.Hint="Email" 
+                 BorderThickness="0 0 0 5" BorderBrush="{DynamicResource MaterialDesignDivider}" 
+                         materialDesign:TextFieldAssist.UnderlineBrush="#FF0099CC"
+               Style="{StaticResource MaterialDesignFloatingHintTextBox}" KeyDown="TxtEmail_KeyDown"/>
+
+
+        <TextBox x:Name="TxtUserName" Grid.Row="9" Width="200" Height="60"  FontSize="18"  HorizontalAlignment="Left"  
+                         materialDesign:HintAssist.Hint="UserName"
+                                    materialDesign:TextFieldAssist.UnderlineBrush="#FF0099CC"
+                                    BorderBrush="{DynamicResource MaterialDesignDivider}" 
+                                    BorderThickness="0 0 0 5"
+                                    Margin="55 0 0 0" 
+                       Text="{Binding UserWrapper.UserName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" KeyDown="TxtUserName_KeyDown"/>
+        
+        <componant:BindablePassword x:Name="TxtPassword" Grid.Row="9" Height="60" Width="200" FontSize="18" HorizontalAlignment="Right" 
+                                    Margin="0 0 40 0" materialDesign:HintAssist.Hint="Password" 
+                BorderThickness="0 0 0 5" BorderBrush="{DynamicResource MaterialDesignDivider}"
+                                    
+                         materialDesign:TextFieldAssist.UnderlineBrush="#FF0099CC"
+               Password="{Binding  UserWrapper.Password,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" KeyDown="TxtPassword_KeyDown"/>
+
+       
+
+
+        <Button x:Name="BtnSignUp" Content="Sign Up" Background="#FF0099CC"
+                        materialDesign:ButtonAssist.CornerRadius="10" BorderBrush="#FF0099CC"  
+                        Grid.Row="11" Width="400" Height="50" Command="{Binding SaveCommand}"
+                Style="{DynamicResource MaterialDesignFlatDarkBgButton}"/>
+
+        <Border Grid.Row="13" Height="60" Grid.ColumnSpan="2">
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFAAAAAA" Offset="1"/>
+                    <GradientStop Color="#FFA8A4A4" Offset="0.757" />
+                    <GradientStop Color="#ffffff" Offset="0.337"/>
+                    <GradientStop Color="#FFE6E6E6" Offset="0.537"/>
+
+
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+    </Grid>
+</UserControl>

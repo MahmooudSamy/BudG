@@ -1,0 +1,34 @@
+﻿<Window x:Class="BudG.UI.SplashScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"   
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+
+        xmlns:local="clr-namespace:BudG.UI"
+        mc:Ignorable="d"
+        Title="SplashScreen" Height="768" Width="1024" ShowInTaskbar="False" 
+        WindowStartupLocation="CenterOwner" HorizontalAlignment="Center" VerticalAlignment="Center"  
+         x:Name="Splashwindow" WindowState="Maximized" WindowStyle="None"  ResizeMode="NoResize" Background="#FF0099CC" Loaded="Splashwindow_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="*"/>
+
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Image Grid.Column="1" Grid.Row="1"  Source="/Images/SplashScreen1copy.png"  />
+
+        <ProgressBar x:Name="StartPB" Foreground="White" Background="Transparent" IsIndeterminate="False"  Grid.Column="1" Margin="0,556,4,101" Grid.Row="1" Height="10"  />
+        <TextBlock x:Name="TxtStatus" Grid.Column="1" HorizontalAlignment="Left" Margin="10,670,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Status..." VerticalAlignment="Top" FontFamily="Times New Roman" FontSize="24" Foreground="White"/>
+        <TextBlock x:Name="TxtCountDown" Grid.Column="1" Margin="464,612,464,68" Grid.Row="1" TextWrapping="Wrap" Text="10%" TextAlignment="Center" FontFamily="Times New Roman" FontSize="24" Foreground="White"/>
+
+        <TextBlock x:Name="TxtCopRight" Grid.Column="1" Grid.Row="1" Height="50" TextAlignment="Center" TextWrapping="Wrap" Text="©2018 All Rights Reserved. AntGeek!" FontFamily="Times New Roman" Padding="12" FontSize="24" Foreground="White" Margin="232,706,232,2" Grid.RowSpan="2" />
+    </Grid>
+</Window>
