@@ -15,22 +15,26 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="10"/>
             <RowDefinition Height="100"/>
-            <RowDefinition Height="60"/>
             <RowDefinition Height="15"/>
             <RowDefinition Height="60"/>
             <RowDefinition Height="15"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="60"/>
+                <RowDefinition Height="15"/>
+                <RowDefinition Height="*"/>
             <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
-            <TextBlock Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center" Text="Choose your Securty question Please." Style="{DynamicResource  MaterialDesignHeadline5TextBlock}" />
-            <ComboBox Grid.Column="1" Grid.Row="2" Width="300" Height="60" 
+            <Border Grid.Column="1" Grid.Row="1" Width="100" Height="100" Background="#FF0099CC" HorizontalAlignment="Left" />
+            <TextBlock Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" TextAlignment="Center"  VerticalAlignment="Center" HorizontalAlignment="Stretch" Text="Choose your Securty question Please." Style="{DynamicResource  MaterialDesignHeadline6TextBlock}" Margin="95,0,0,0" />
+
+            
+            <ComboBox Grid.Column="1" Grid.Row="3" Width="300" Height="60" 
                       materialDesign:ComboBoxAssist.ShowSelectedItem="True" BorderThickness="0 0 0 5"
                        materialDesign:TextFieldAssist.UnderlineBrush="#FF0099CC"
                       BorderBrush="{DynamicResource MaterialDesignDivider}"
                       materialDesign:HintAssist.Hint="Choose a Question"
                       Style="{DynamicResource MaterialDesignFloatingHintComboBox}"/>
 
-            <TextBox x:Name="TxtUserName" Grid.Column="1" Grid.Row="4" Width="300"   FontSize="18"  HorizontalAlignment="Center"  
+            <TextBox x:Name="TxtAnswer" Grid.Column="1" Grid.Row="5" Width="300"   FontSize="18"  HorizontalAlignment="Center"  
                          materialDesign:HintAssist.Hint="Your Answer" 
                                     materialDesign:TextFieldAssist.UnderlineBrush="#FF0099CC"
                                     BorderBrush="{DynamicResource MaterialDesignDivider}" 
@@ -39,7 +43,7 @@
                        />
             <Button x:Name="BtnSave" Grid.Column="1" Content="Save" Background="#FF0099CC"
                         materialDesign:ButtonAssist.CornerRadius="5 5 5 5" BorderBrush="#FF0099CC"  
-                        Grid.Row="6" Width="400" Height="50"
+                        Grid.Row="7" Width="400" Height="50"
                 Style="{DynamicResource MaterialDesignFlatDarkBgButton}"/>
         </Grid>
     </materialDesign:Card>

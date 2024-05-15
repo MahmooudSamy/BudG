@@ -4,14 +4,16 @@ using BudG.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BudG.DataAccess.Migrations
 {
     [DbContext(typeof(BudGDbContext))]
-    partial class BudGDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240420174115_SeedingQuestions")]
+    partial class SeedingQuestions
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -71,47 +73,47 @@ namespace BudG.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            QuesId = 1,
+                            QuesId = -1,
                             QuestionShape = "What was the name of your first school teacher?"
                         },
                         new
                         {
-                            QuesId = 2,
+                            QuesId = -2,
                             QuestionShape = "What year did you enter college?"
                         },
                         new
                         {
-                            QuesId = 3,
+                            QuesId = -3,
                             QuestionShape = "What is your grandmother’s maiden name?"
                         },
                         new
                         {
-                            QuesId = 4,
+                            QuesId = -4,
                             QuestionShape = "How old are you?"
                         },
                         new
                         {
-                            QuesId = 5,
+                            QuesId = -5,
                             QuestionShape = "What is your child’s nickname?"
                         },
                         new
                         {
-                            QuesId = 6,
+                            QuesId = -6,
                             QuestionShape = "What is the manufacturer of your first car?"
                         },
                         new
                         {
-                            QuesId = 7,
+                            QuesId = -7,
                             QuestionShape = "What was the name of your favorite childhood pet?"
                         },
                         new
                         {
-                            QuesId = 8,
+                            QuesId = -8,
                             QuestionShape = "What is your favorite sport?"
                         },
                         new
                         {
-                            QuesId = 9,
+                            QuesId = -9,
                             QuestionShape = "In which area of the city is your place of work located?"
                         });
                 });

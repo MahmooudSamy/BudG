@@ -1,5 +1,6 @@
 ﻿using BudG.DataAccess.Repositories.Interface;
 using BudG.Domain;
+using BudG.UI.Events;
 using BudG.UI.Extentions;
 using BudG.UI.Interface;
 using BudG.UI.Wrapar;
@@ -43,6 +44,11 @@ namespace BudG.UI.ViewModels
                 UserWrapper.Password=UserWrapper.Password.ToHashSomeText();
                 UserWrapper.ProfilePicture = getJPGFromImageControl(null);
                 await _userReposetry.SaveAsync();
+                _eventAggregator.GetEvent<OpenPopupsEvent>().Publish(new OpenPopupsEventArgs
+                {
+                    IsOpen = true,
+                    PageName = PagesName.SecuertyQuestionPopupView
+                });
             }
             
             catch (DbUpdateConcurrencyException dbCEx)
@@ -57,6 +63,8 @@ namespace BudG.UI.ViewModels
                     var entry = dbCEx.Entries.Single();
                     entry.OriginalValues.SetValues(entry.GetDatabaseValues());
                     await _userReposetry.SaveAsync();
+
+                   
                 }
                 else
                 {
@@ -75,6 +83,8 @@ namespace BudG.UI.ViewModels
                 HasChanges = _userReposetry.HasChanges();
                 //ToDo:
                 //Error Send The picture and name to navtigation
+
+                
             }
         }
 
