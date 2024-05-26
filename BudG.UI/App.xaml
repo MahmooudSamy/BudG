@@ -13,6 +13,7 @@
 
 
                 <ResourceDictionary Source="ResourceDictianary/TextBoxStyle.xaml"/>
+                <ResourceDictionary Source="ResourceDictianary/CompoBoxStyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
