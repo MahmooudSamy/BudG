@@ -47,8 +47,9 @@ namespace BudG.UI.ViewModels
                 _eventAggregator.GetEvent<OpenPopupsEvent>().Publish(new OpenPopupsEventArgs
                 {
                     IsOpen = true,
-                    PageName = PagesName.SecuertyQuestionPopupView
-                });
+                    PageName = PagesName.SecuertyQuestionPopupView,
+                    UserId = UserWrapper.Id
+                }) ;
             }
             
             catch (DbUpdateConcurrencyException dbCEx)

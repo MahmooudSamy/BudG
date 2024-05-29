@@ -10,6 +10,7 @@ namespace BudG.UI.Events
     {
         public bool IsOpen { get; set; }
         public PagesName PageName { get; set; }
+        public int UserId { get; set; }
     }
 
     public enum PagesName

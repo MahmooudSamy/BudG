@@ -40,10 +40,12 @@
                        materialDesign:TextFieldAssist.UnderlineBrush="#FF0099CC"
                       BorderBrush="{DynamicResource MaterialDesignDivider}"
                       materialDesign:HintAssist.Hint="Choose a Question" FontSize="16" FontFamily="Times New Roman" 
-                      Style="{DynamicResource ComboBoxStyle1}"/>
+                      Style="{DynamicResource ComboBoxStyle1}"
+                      ItemsSource="{Binding Questionslookups}" DisplayMemberPath="Question" SelectedValuePath="Id"
+                      SelectedIndex="0" />
+            <!--SelectedValue="{Binding Account.IdCurrency,Mode=TwoWay}"-->
 
-            
-        
+
             <TextBox  x:Name="TxtAnswer" Grid.Column="1" Grid.Row="5" Width="300" Height="45"   FontSize="18"  HorizontalAlignment="Center"  
                          materialDesign:HintAssist.Hint="Your Answer" 
                                     materialDesign:TextFieldAssist.UnderlineBrush="#FF0099CC"
