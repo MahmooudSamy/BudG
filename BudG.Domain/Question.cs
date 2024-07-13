@@ -11,7 +11,7 @@ namespace BudG.Domain
         }
         [Required]
         [Key]
-        public int QuesId { get; set; }
+        public int QuestionId { get; set; }
 
         [Required(ErrorMessage = "Please enter your first name")]
         [StringLength(100)]

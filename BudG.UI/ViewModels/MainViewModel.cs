@@ -51,7 +51,7 @@ namespace BudG.UI.ViewModels
                     if(Validates.PageName==PagesName.SecuertyQuestionPopupView)
                     {
                         AnswerViewModel = _answerViewModelCreator();
-                        AnswerViewModel.CreateEditAnswer(Validates.UserId);
+                        AnswerViewModel.CreateEditAnswer(Validates.UserId,null);
                     }
                     break;
             }

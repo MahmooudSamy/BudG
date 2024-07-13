@@ -21,7 +21,7 @@ namespace BudG.UI.Wrapar
             set { SetValue(value); }
         }
 
-        public int QuesId
+        public int QuestionId
         {
             get { return GetValue<int>(); }
             set { SetValue(value); }

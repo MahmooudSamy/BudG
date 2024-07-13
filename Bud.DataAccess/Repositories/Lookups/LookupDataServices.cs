@@ -24,7 +24,7 @@ namespace BudG.DataAccess.Repositories.Lookups
             {
                 return await context.Questions.AsNoTracking().Select(q => new QuestionLookup
                 {
-                    Id = q.QuesId,
+                    Id = q.QuestionId,
                     Question = q.QuestionShape
                 }).ToListAsync();
             }

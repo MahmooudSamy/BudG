@@ -25,10 +25,10 @@ namespace BudG.DataAccess.Repositories.Classes
             return await _context.Answers.SingleOrDefaultAsync(u => u.AnswerQuestion == answer);
         }
 
-       
-        public async Task<Answer> GetAsyncById(int questionId, int userId)
+
+        public async Task<Answer> GetAsyncAnswerByUserId(int userId)
         {
-            return await _context.Answers.SingleOrDefaultAsync(a => a.QuesId == questionId && a.UserId == userId);
+            return await _context.Answers.SingleOrDefaultAsync(a =>  a.UserId == userId);
         }
 
         public bool HasChanges()
@@ -63,5 +63,6 @@ namespace BudG.DataAccess.Repositories.Classes
             }
         }
 
+      
     }
 }

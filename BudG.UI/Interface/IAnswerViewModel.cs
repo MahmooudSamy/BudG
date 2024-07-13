@@ -8,7 +8,7 @@ namespace BudG.UI.Interface
 {
   public  interface IAnswerViewModel
     {
-        Task CreateEditAnswer(int userID);
+        Task CreateEditAnswer(int userID,int? answerId);
         bool HasChanges { get; set; }
     }
 }

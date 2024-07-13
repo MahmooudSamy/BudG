@@ -1,5 +1,6 @@
 ﻿using BudG.Domain.CustomAttribute;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BudG.Domain
 {
@@ -15,8 +16,10 @@ namespace BudG.Domain
         [StringLength(50)]
         [ExcludeChar("/.,!@#$%?&*()^-_+=", ErrorMessage = "The answer contains invalid letters.")]
         public string AnswerQuestion { get; set; }
-        public int QuesId { get; set; }
+
         public Question Question { get; set; }
+        public int QuestionId { get; set; }
+        
 
         public int UserId { get; set; }
         public User User { get; set; }

@@ -5,7 +5,7 @@ namespace BudG.DataAccess.Repositories.Interface
 {
     public interface IAnswerReposetry
     {
-        Task<Answer> GetAsyncById(int questionId,int userId);
+        Task<Answer> GetAsyncAnswerByUserId(int userId);
         Task<Answer> CheckAnswerAsyncByAnswer(string answer);
         Task SaveAsync();
         bool HasChanges();
