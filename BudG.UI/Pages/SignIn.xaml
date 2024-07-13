@@ -145,6 +145,7 @@
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <Image  Grid.Row="2" Grid.RowSpan="9"  Source="/Images/SplashScreen1copy.png"  />
+                        
                         <Button x:Name="SignUp" Content="Sign up" Background="#FF0099CC" BorderThickness="3"
                         materialDesign:ButtonAssist.CornerRadius="10" BorderBrush="#FFFFFF"  
                         Grid.Row="11" Width="400" Height="50"  Style="{DynamicResource MaterialDesignFlatDarkBgButton}" Click="SignUp_Click" MouseDown="SignUp_MouseDown" Command="{Binding OpenCreateAccCommand}"/>

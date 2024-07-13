@@ -15,6 +15,8 @@ using System.Windows.Shapes;
 using System.Windows.Media.Animation;
 using System.Threading;
 using BudG.UI.ViewModels;
+using Prism.Events;
+using BudG.UI.Events;
 
 namespace BudG.UI.Pages
 {
@@ -24,12 +26,23 @@ namespace BudG.UI.Pages
     public partial class SignIn : Page
     {
         private MainViewModel _viewModel;
+        private IEventAggregator _eventAggregator;
 
-        public SignIn(MainViewModel mainViewModel )
+        public SignIn(MainViewModel mainViewModel,IEventAggregator eventAggregator)
         {
             InitializeComponent();
             _viewModel = mainViewModel;
+            _eventAggregator = eventAggregator;
             DataContext = _viewModel;
+            _eventAggregator.GetEvent<RotatedEvent>().Subscribe(OnRotateAnimationExecute);
+        }
+
+        private void OnRotateAnimationExecute(bool IsRotated)
+        {
+          if(IsRotated)
+            {
+                RoateToSignin();
+            }
         }
 
         private void OpenSignUpMode()
@@ -53,6 +66,11 @@ namespace BudG.UI.Pages
             sb3.Begin();
         }
         private void SignUp_Click(object sender, RoutedEventArgs e)
+        {
+            RotateToSignUp();
+        }
+
+        private void RotateToSignUp()
         {
             Task.Run(() =>
             {
@@ -94,6 +112,11 @@ namespace BudG.UI.Pages
         }
 
         private void BtnSignin_Click(object sender, RoutedEventArgs e)
+        {
+            RoateToSignin();
+        }
+
+        private void RoateToSignin()
         {
             Task.Run(() =>
             {

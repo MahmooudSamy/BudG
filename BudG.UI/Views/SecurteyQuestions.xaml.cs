@@ -24,5 +24,10 @@ namespace BudG.UI.Views
         {
             InitializeComponent();
         }
+
+        private void SecurteyView_Loaded(object sender, RoutedEventArgs e)
+        {
+            ComboQuestion.SelectedIndex = 0;
+        }
     }
 }

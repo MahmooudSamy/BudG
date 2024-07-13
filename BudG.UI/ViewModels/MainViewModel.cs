@@ -13,7 +13,7 @@ using System.Windows.Input;
 
 namespace BudG.UI.ViewModels
 {
-    public class MainViewModel:ViewModelBase
+    public class MainViewModel : ViewModelBase
     {
         //Creators
         private Func<IUserViewModel> _userViewModelCreator;
@@ -24,12 +24,12 @@ namespace BudG.UI.ViewModels
         private IAnswerViewModel _answerViewModel;
         private Page _navigateToPageInFrame;
         public MainViewModel(Func<IUserViewModel> userViewModelCreator, Func<IAnswerViewModel> answerViewModelCreator,
-            INavigationViewModel navigationViewModel,IEventAggregator eventAggregator)
+            INavigationViewModel navigationViewModel, IEventAggregator eventAggregator)
         {
             _userViewModelCreator = userViewModelCreator;
             _answerViewModelCreator = answerViewModelCreator;
             _eventAggregator = eventAggregator;
-             Users = new ObservableCollection<User>();
+            Users = new ObservableCollection<User>();
             NavigationViewModel = navigationViewModel;
             //Comands
             OpenCreateAccCommand = new DelegateCommand(OnOpenCreateAccCommand);
@@ -45,13 +45,18 @@ namespace BudG.UI.ViewModels
             switch (Validates.IsOpen)
             {
                 case false:
+                    if (Validates.PageName == PagesName.SecuertyQuestionPopupView)
+                    {
+                        _eventAggregator.GetEvent<RotatedEvent>().Publish(true);
+                    }
                     AnswerViewModel = null;
+
                     break;
                 case true:
-                    if(Validates.PageName==PagesName.SecuertyQuestionPopupView)
+                    if (Validates.PageName == PagesName.SecuertyQuestionPopupView)
                     {
                         AnswerViewModel = _answerViewModelCreator();
-                        AnswerViewModel.CreateEditAnswer(Validates.UserId,null);
+                        AnswerViewModel.CreateEditAnswer(Validates.UserId, null);
                     }
                     break;
             }
@@ -68,25 +73,25 @@ namespace BudG.UI.ViewModels
         {
             //NavigateToPageInFrame = new SignIn(this);
             await NavigationViewModel.LoadAsync();
-           
+
         }
 
         public INavigationViewModel NavigationViewModel { get; set; }
 
-        
+
         public IUserViewModel UserViewModel
         {
             get { return _userViewModel; }
             set { _userViewModel = value; OnPropertyChanged(); }
         }
 
-      
+
         public IAnswerViewModel AnswerViewModel
         {
             get { return _answerViewModel; }
             set { _answerViewModel = value; OnPropertyChanged(); }
         }
-        
+
         public Page NavigateToPageInFrame
         {
             get { return _navigateToPageInFrame; }

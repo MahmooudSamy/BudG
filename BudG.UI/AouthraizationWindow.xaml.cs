@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using BudG.UI.ViewModels;
+using Prism.Events;
 
 namespace BudG.UI
 {
@@ -12,14 +13,17 @@ namespace BudG.UI
     /// </summary>
     public partial class AouthraizationWindow : Window
     {
+        private IEventAggregator _eventAggregator;
         private MainViewModel _mainViewModel;
 
-        public AouthraizationWindow(MainViewModel mainViewModel)
+        public AouthraizationWindow(MainViewModel mainViewModel,IEventAggregator eventAggregator)
         {
             InitializeComponent();
             Width = 1000;
             Height = 600;
+
             WindowState = WindowState.Normal;
+            _eventAggregator = eventAggregator;
             _mainViewModel = mainViewModel;
             DataContext = _mainViewModel;
         }
@@ -56,7 +60,7 @@ namespace BudG.UI
         public void OpenPage()
         {
 
-            _mainViewModel.NavigateToPageInFrame = new Pages.SignIn(_mainViewModel);
+            _mainViewModel.NavigateToPageInFrame = new Pages.SignIn(_mainViewModel,_eventAggregator);
             //ProjectorFrame.NavigationService.Navigate(new LogInPage(this, _viewmodel));
 
         }

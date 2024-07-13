@@ -39,6 +39,7 @@ namespace BudG.UI.ViewModels
             var lookup = await _questionLookup.GetQuestionsList();
             foreach (var item in lookup)
             {
+                
                 Questionslookups.Add(item);
             }
         }
@@ -58,8 +59,9 @@ namespace BudG.UI.ViewModels
                 _eventAggregator.GetEvent<OpenPopupsEvent>().Publish(new OpenPopupsEventArgs
                 {
                     IsOpen = false,
-                    
-                });
+                    PageName = PagesName.SecuertyQuestionPopupView
+
+                }) ;
             }
             catch (DbUpdateConcurrencyException dbCEx)
             {
@@ -83,11 +85,11 @@ namespace BudG.UI.ViewModels
                     await CreateEditAnswer(AnswerWrapper.UserId,AnswerWrapper.Id);
                 }
             }
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show($"Unhandle error has occur {ex.Message}");
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Unhandle error has occur {ex.Message}");
 
-            //}
+            }
             finally
             {
                 HasChanges = _answerReposetry.HasChanges();
