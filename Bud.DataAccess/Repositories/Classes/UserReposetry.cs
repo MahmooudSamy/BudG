@@ -2,9 +2,6 @@
 using BudG.Domain;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace BudG.DataAccess.Repositories.Classes
@@ -29,12 +26,12 @@ namespace BudG.DataAccess.Repositories.Classes
 
         public async Task<User> GetAsyncById(int userId)
         {
-            return await _context.Users.SingleOrDefaultAsync(u => u.UserId == userId);
+            return await _context.Users.AsNoTracking().SingleOrDefaultAsync(u => u.UserId == userId);
         }
 
         public async Task<User> GetAsyncByPassword(string userName, string password)
         {
-            return await _context.Users.SingleOrDefaultAsync
+            return await _context.Users.AsNoTracking().SingleOrDefaultAsync
                  (u => u.UserName == userName && u.Password == password);
         }
 
