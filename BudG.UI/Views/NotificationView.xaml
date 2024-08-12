@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="BudG.UI.Views.NotificationView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BudG.UI.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="150" d:DesignWidth="800" Background="Transparent">
+    <Border x:Name="BrdLayout" BorderThickness="2" CornerRadius="20">
+    <Grid x:Name="Layout" Background="Transparent">
+            <materialDesign:Card x:Name="NotfiCard" UniformCornerRadius="20">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="60"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Border x:Name="BrdColor" Grid.Column="0" Grid.Row="0" Grid.RowSpan="4" Background="{Binding Background,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" CornerRadius="0 0 0 20"/>
+                    <TextBlock Grid.Row="1" Grid.Column="2" Text="{Binding Title,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" TextAlignment="Left" FontWeight="Bold" 
+                           Style="{DynamicResource MaterialDesignHeadline4TextBlock}"/>
+                    <TextBlock Grid.Row="2" Grid.Column="2" Text="{Binding Message,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" TextAlignment="Left" FontWeight="Regular" 
+                           Style="{DynamicResource MaterialDesignSubtitle1TextBlock}"/>
+
+                    <Button Grid.Column="3" Grid.Row="0" Grid.RowSpan="4" Width="60" Height="40" Margin="0 0 0 20"
+        Style="{StaticResource MaterialDesignFlatButton}" FontSize="20" 
+        ToolTip="Close" Foreground="#FF646C76">
+                        <Path Data="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" 
+        											Stretch="Uniform" Fill="#FFAAAAAA" Width="24" Height="24" />
+                    </Button>
+                </Grid>
+            </materialDesign:Card>
+    </Grid>
+    </Border>
+</UserControl>

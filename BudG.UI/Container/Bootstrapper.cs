@@ -36,6 +36,7 @@ namespace BudG.UI.Container
             bulider.RegisterType<UserViewModel>().As<IUserViewModel>();
             bulider.RegisterType<AnswerViewModel>().As<IAnswerViewModel>();
             bulider.RegisterType<NavigationViewModel>().As<INavigationViewModel>();
+            bulider.RegisterType<NotificationViewModel>().As<INotificationViewModel>();
             //ViewModel
             return bulider.Build();
         }
