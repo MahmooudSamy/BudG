@@ -3,6 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+          xmlns:viewModel="clr-namespace:BudG.UI.ViewModels"
+        xmlns:Views="clr-namespace:BudG.UI.Views"
         xmlns:local="clr-namespace:BudG.UI"
         mc:Ignorable="d"
         Title="Sign In"  Height="768" Width="1024" ShowInTaskbar="True" 
@@ -11,17 +13,33 @@
     <Window.CommandBindings>
         <CommandBinding Command="NavigationCommands.GoToPage" Executed="DataBinder" CanExecute="DataBinderExecuter" />
     </Window.CommandBindings>
-    <Border x:Name="Brdholder" BorderThickness="5"  CornerRadius="20" Background="Transparent" MouseLeftButtonDown="Brdholder_MouseLeftButtonDown">
-    <Grid x:Name="GenralLayout">
-            <!--<Grid.ColumnDefinitions>
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type viewModel:NotificationViewModel}">
+            <Views:NotificationView/>
+        </DataTemplate>
+    </Window.Resources>
+    <Grid x:Name="BigHolder">
+        <Border x:Name="Brdholder" BorderThickness="5"  CornerRadius="20" Background="Transparent" MouseLeftButtonDown="Brdholder_MouseLeftButtonDown">
+            <Grid x:Name="GenralLayout">
+                <!--<Grid.ColumnDefinitions>
                 <ColumnDefinition Width="10"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="10"/>
             </Grid.ColumnDefinitions>-->
-            <Frame Grid.Row="1" Grid.Column="1" Background="Transparent" x:Name="ProjectorFrame" NavigationUIVisibility="Hidden"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" 
+                <Grid x:Name="gridContent" Grid.Row="1" Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid x:Name="GrdFrame" Grid.Row="0" Grid.RowSpan="2">
+                        <Frame  Background="Transparent" x:Name="ProjectorFrame" NavigationUIVisibility="Hidden"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" 
                VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" 
                    Content="{Binding NavigateToPageInFrame}"/>
-       
-        </Grid>
-    </Border>
+                    </Grid>
+                    <ContentControl x:Name="AlertMessageDialog"  Grid.Row="0" Content="{Binding NotificationViewModel}"/>
+                </Grid>
+            </Grid>
+
+        </Border>
+    </Grid>
 </Window>

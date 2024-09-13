@@ -31,7 +31,8 @@
 
                     <Button Grid.Column="3" Grid.Row="0" Grid.RowSpan="4" Width="60" Height="40" Margin="0 0 0 20"
         Style="{StaticResource MaterialDesignFlatButton}" FontSize="20" 
-        ToolTip="Close" Foreground="#FF646C76">
+        ToolTip="Close" Foreground="#FF646C76" Command="{Binding NotifayClose}">
+                        
                         <Path Data="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" 
         											Stretch="Uniform" Fill="#FFAAAAAA" Width="24" Height="24" />
                     </Button>

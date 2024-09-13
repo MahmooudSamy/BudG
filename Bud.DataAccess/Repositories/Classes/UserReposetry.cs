@@ -3,6 +3,7 @@ using BudG.Domain;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace BudG.DataAccess.Repositories.Classes
 {
@@ -35,6 +36,10 @@ namespace BudG.DataAccess.Repositories.Classes
                  (u => u.UserName == userName && u.Password == password);
         }
 
+        public async Task<User> GetAllUsersAsync()
+        {
+            return await _context.Users.AsNoTracking().FirstOrDefaultAsync();
+        }
         public bool HasChanges()
         {
             return _context.ChangeTracker.HasChanges();
@@ -49,6 +54,7 @@ namespace BudG.DataAccess.Repositories.Classes
         {
             await _context.SaveChangesAsync();
         }
+
 
         public void Dispose()
         {
@@ -66,5 +72,7 @@ namespace BudG.DataAccess.Repositories.Classes
                 }
             }
         }
+
+       
     }
 }

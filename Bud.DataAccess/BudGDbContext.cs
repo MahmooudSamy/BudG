@@ -20,7 +20,7 @@ namespace BudG.DataAccess
         public DbSet<Answer> Answers { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("data source=.;initial catalog=Budget;user id=sa;password=Allahisthe1;MultipleActiveResultSets=True;");
+            optionsBuilder.UseSqlServer("data source=.;initial catalog=Budget;user id=sa;password=Allahisthe1;TrustServerCertificate=True;MultipleActiveResultSets=True;");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

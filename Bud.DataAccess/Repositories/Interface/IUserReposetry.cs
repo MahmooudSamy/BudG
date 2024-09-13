@@ -6,6 +6,7 @@ namespace BudG.DataAccess.Repositories.Interface
     public interface IUserReposetry
     {
         Task<User> GetAsyncById(int userId);
+        Task<User> GetAllUsersAsync();
         Task<User> GetAsyncByPassword(string userName, string password);
         Task<User> GetAsyncByEmail(string email);
         Task SaveAsync();

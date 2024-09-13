@@ -107,7 +107,7 @@
                 <materialDesign:Card.RenderTransform>
                     <TranslateTransform X="0"/>
                 </materialDesign:Card.RenderTransform>
-                <UserControl:LogInView />
+                <UserControl:LogInView x:Name="LoginView" DataContext="{Binding LogInViewModel}"/>
             </materialDesign:Card>
 
             <materialDesign:Card x:Name="CreateAccountPart" Grid.Column="0" UniformCornerRadius="10" Visibility="Collapsed">
@@ -188,7 +188,7 @@
                         <Image  Grid.Row="2" Grid.RowSpan="9"  Source="/Images/SplashScreen1copy.png"  />
                         <Button x:Name="BtnSignin" Content="Sign In" Background="#FF0099CC" BorderThickness="3"
                         materialDesign:ButtonAssist.CornerRadius="10" BorderBrush="#FFFFFF"  
-                        Grid.Row="11" Width="400" Height="50"  Style="{DynamicResource MaterialDesignFlatDarkBgButton}" Click="BtnSignin_Click"/>
+                        Grid.Row="11" Width="400" Height="50"  Style="{DynamicResource MaterialDesignFlatDarkBgButton}" Click="BtnSignin_Click" Command="{Binding OpenSigninCommand}"/>
 
                         <Border Grid.Row="13" Height="80" Grid.ColumnSpan="2">
                             <Border.Background>

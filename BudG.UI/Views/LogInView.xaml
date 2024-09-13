@@ -50,8 +50,9 @@
         </TextBlock>
         <Button x:Name="logIn" Content="Sign in" Background="#FF0099CC"
                         materialDesign:ButtonAssist.CornerRadius="10" BorderBrush="#FF0099CC"  
-                        Grid.Row="11" Width="400" Height="50"  Style="{DynamicResource MaterialDesignFlatDarkBgButton}"/>
-        <Border Grid.Row="13" Height="80" Grid.ColumnSpan="2">
+                        Grid.Row="11" Width="400" Height="50" Command="{Binding LogInCommand}"
+                Style="{DynamicResource MaterialDesignFlatDarkBgButton}"/>
+        <Border Grid.Row="13" Height="80" Grid.ColumnSpan="2" >
             <Border.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFAAAAAA" Offset="1"/>

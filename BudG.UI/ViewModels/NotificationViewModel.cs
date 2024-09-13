@@ -1,4 +1,5 @@
-﻿using BudG.UI.Interface;
+﻿using BudG.UI.Events;
+using BudG.UI.Interface;
 using Prism.Commands;
 using Prism.Events;
 using System;
@@ -22,8 +23,11 @@ namespace BudG.UI.ViewModels
 
         private void OnNotifayClosingExecute()
         {
-            //_eventAggregator.GetEvent<CloseConfirmNotification>()
-            //      .Publish(true);
+            _eventAggregator.GetEvent<CloseOpenNotification>()
+                  .Publish(new CloseOpenNotificationArgs
+                  {
+                      IsOpen = false
+                  }) ;
         }
 
         public void ShowMessageNotification(string message, string title, NotificationType type)
