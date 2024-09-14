@@ -14,9 +14,7 @@
         <CommandBinding Command="NavigationCommands.GoToPage" Executed="DataBinder" CanExecute="DataBinderExecuter" />
     </Window.CommandBindings>
     <Window.Resources>
-        <DataTemplate DataType="{x:Type viewModel:NotificationViewModel}">
-            <Views:NotificationView/>
-        </DataTemplate>
+        
     </Window.Resources>
     <Grid x:Name="BigHolder">
         <Border x:Name="Brdholder" BorderThickness="5"  CornerRadius="20" Background="Transparent" MouseLeftButtonDown="Brdholder_MouseLeftButtonDown">
@@ -36,7 +34,6 @@
                VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" 
                    Content="{Binding NavigateToPageInFrame}"/>
                     </Grid>
-                    <ContentControl x:Name="AlertMessageDialog"  Grid.Row="0" Content="{Binding NotificationViewModel}"/>
                 </Grid>
             </Grid>
 

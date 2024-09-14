@@ -2,7 +2,7 @@
 {
     public interface INotificationViewModel
     {
-        void ShowMessageNotification(string message, string title, NotificationType type);
+        void ShowMessageNotification(string message, NotificationType type);
     }
 
    public enum NotificationType

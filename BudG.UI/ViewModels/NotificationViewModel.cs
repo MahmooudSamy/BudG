@@ -30,28 +30,29 @@ namespace BudG.UI.ViewModels
                   }) ;
         }
 
-        public void ShowMessageNotification(string message, string title, NotificationType type)
+        public void ShowMessageNotification(string message, NotificationType type)
         {
             Message = message;
-            Title = title;
-            Message = message;
+            
+            
             switch (type)
             {
                 case NotificationType.Error:
                     Background = new SolidColorBrush(Color.FromRgb(250, 0, 2));
-
+                    Title = "Error occurred";
                     break;
                 case NotificationType.Info:
                     Background = new SolidColorBrush(Color.FromRgb(48, 134, 234));
-
+                    Title = "Did you know?";
                     break;
                 case NotificationType.Warning:
                     Background = new SolidColorBrush(Color.FromRgb(255, 183, 0));
-
+                    Title = "Action Required";
                     break;
                 case NotificationType.Success:
                     Background = new SolidColorBrush(Color.FromRgb(22, 173, 37));
-
+                    Title = "Saved Successfully";
+                    Message = "Your changes have been saved successfully.";
                     break;
                 default:
                     Background = new SolidColorBrush(Color.FromRgb(22, 173, 37));
@@ -59,7 +60,7 @@ namespace BudG.UI.ViewModels
 
             }
         }
-
+      
         public string Title
         {
             get { return _title; }

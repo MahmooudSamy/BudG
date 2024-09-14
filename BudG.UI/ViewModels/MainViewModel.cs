@@ -68,9 +68,13 @@ namespace BudG.UI.ViewModels
                 else
                 {
                     NotificationViewModel = _notificationViewModelCreator();
-                    NotificationViewModel.ShowMessageNotification("Saved Successfull", "Success", NotificationType.Success);
+                    NotificationViewModel.ShowMessageNotification("Fill the required field", NotificationType.Error);
                 }
                
+            }
+           else
+            {
+                NotificationViewModel = null;
             }
         }
 

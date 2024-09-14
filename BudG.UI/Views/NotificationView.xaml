@@ -6,9 +6,18 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:BudG.UI.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="150" d:DesignWidth="800" Background="Transparent">
+             d:DesignHeight="100" d:DesignWidth="300" Background="Transparent" x:Name="notificationCard" Loaded="notificationCard_Loaded">
+    <UserControl.Resources>
+        <Storyboard x:Key="SlideIn">
+            <ThicknessAnimation Duration="0:0:.50"
+                         Storyboard.TargetProperty="Margin"
+                         From="300,0,-500,0"
+                         To="0"
+                         DecelerationRatio=".9" />
+        </Storyboard>
+    </UserControl.Resources>
     <Border x:Name="BrdLayout" BorderThickness="2" CornerRadius="20">
-    <Grid x:Name="Layout" Background="Transparent">
+        <Grid x:Name="Layout" Background="Transparent">
             <materialDesign:Card x:Name="NotfiCard" UniformCornerRadius="20">
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -18,26 +27,30 @@
                         <ColumnDefinition Width="60"/>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="30"/>
-                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="40"/>
                         <RowDefinition Height="40"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <Border x:Name="BrdColor" Grid.Column="0" Grid.Row="0" Grid.RowSpan="4" Background="{Binding Background,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" CornerRadius="0 0 0 20"/>
-                    <TextBlock Grid.Row="1" Grid.Column="2" Text="{Binding Title,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" TextAlignment="Left" FontWeight="Bold" 
-                           Style="{DynamicResource MaterialDesignHeadline4TextBlock}"/>
-                    <TextBlock Grid.Row="2" Grid.Column="2" Text="{Binding Message,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" TextAlignment="Left" FontWeight="Regular" 
-                           Style="{DynamicResource MaterialDesignSubtitle1TextBlock}"/>
+                    <TextBlock Grid.Row="1" Grid.Column="2" Text="{Binding Title,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" 
+                               TextAlignment="Left" FontWeight="Bold" 
+                               Style="{DynamicResource MaterialDesignHeadline6TextBlock}" 
+                               VerticalAlignment="Center"/>
+                    <TextBlock Grid.Row="2" Grid.Column="2" Text="{Binding Message,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"
+                               TextAlignment="Left" FontWeight="Regular" TextWrapping="Wrap"
+                         Style="{DynamicResource MaterialDesignSubtitle1TextBlock}" 
+                               VerticalAlignment="Center"/>
 
-                    <Button Grid.Column="3" Grid.Row="0" Grid.RowSpan="4" Width="60" Height="40" Margin="0 0 0 20"
+                    <Button Grid.Column="3" Grid.Row="0" Grid.RowSpan="4" Width="60" Height="40" 
         Style="{StaticResource MaterialDesignFlatButton}" FontSize="20" 
         ToolTip="Close" Foreground="#FF646C76" Command="{Binding NotifayClose}">
-                        
+
                         <Path Data="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" 
         											Stretch="Uniform" Fill="#FFAAAAAA" Width="24" Height="24" />
                     </Button>
                 </Grid>
             </materialDesign:Card>
-    </Grid>
+        </Grid>
     </Border>
 </UserControl>
