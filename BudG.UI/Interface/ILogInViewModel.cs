@@ -1,10 +1,11 @@
-﻿using System.Threading.Tasks;
+﻿using BudG.Domain;
+using System.Threading.Tasks;
 
 namespace BudG.UI.Interface
 {
     public interface ILogInViewModel
     {
         Task CheckUserValid();
-        Task LoadUserForValidAysnc();
+        Task<User> LoadUserForValidAysnc();
     }
 }

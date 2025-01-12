@@ -7,6 +7,7 @@ using System;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Forms;
 using System.Windows.Input;
 
 namespace BudG.UI.ViewModels
@@ -63,12 +64,13 @@ namespace BudG.UI.ViewModels
             {
                 if(OpninigNotifay.Id!=0)
                 {
-                    //sucsess
+                    //sucsess Open New Window With User Data
+                    MessageBox.Show(OpninigNotifay.Id.ToString());
                 }
                 else
                 {
                     NotificationViewModel = _notificationViewModelCreator();
-                    NotificationViewModel.ShowMessageNotification("Fill the required field", NotificationType.Error);
+                    NotificationViewModel.ShowMessageNotification(OpninigNotifay.Message, OpninigNotifay.NotificationType);
                 }
                
             }
@@ -111,6 +113,7 @@ namespace BudG.UI.ViewModels
         {
             //NavigateToPageInFrame = new SignIn(this);
             LogInViewModel = _LoginViewModelCreator();
+            await LogInViewModel.LoadUserForValidAysnc();
             await NavigationViewModel.LoadAsync();
 
         }

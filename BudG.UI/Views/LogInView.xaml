@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:BudG.UI.Views"
+              xmlns:componant="clr-namespace:BudG.UI.Componant"
               xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
               TextElement.Foreground="{DynamicResource MaterialDesignBody}">
     <Grid x:Name="Header">
@@ -33,15 +34,17 @@
         <TextBox Grid.Row="5" Height="60" Width="400" FontSize="18" materialDesign:HintAssist.Hint="UserName" 
                BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" 
                          materialDesign:TextFieldAssist.UnderlineBrush="#FF0099CC"
+                 Text="{Binding UserName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                Style="{StaticResource MaterialDesignOutlinedTextBox}">
         </TextBox>
 
-        <PasswordBox Grid.Row="7" Height="60" Width="400" FontSize="18" 
+        <componant:BindablePassword Grid.Row="7" Height="60" Width="400" FontSize="18" 
                              materialDesign:HintAssist.Hint="Password" BorderThickness="2" 
                              BorderBrush="{DynamicResource MaterialDesignDivider}" 
                              materialDesign:TextFieldAssist.UnderlineBrush="#FF0099CC"
-                             Style="{DynamicResource MaterialDesignOutlinedPasswordBox}">
-        </PasswordBox>
+                      Password="{Binding Password,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                            >
+        </componant:BindablePassword>
 
         <TextBlock Grid.Row="9" FontSize="20" TextAlignment="Center"  
                          HorizontalAlignment="Left" Margin="50 0 0 0"  Style="{DynamicResource MaterialDesignBody1TextBlock}">

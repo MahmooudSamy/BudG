@@ -1,4 +1,5 @@
-﻿using Prism.Events;
+﻿using BudG.UI.Interface;
+using Prism.Events;
 
 namespace BudG.UI.Events
 {
@@ -10,5 +11,7 @@ namespace BudG.UI.Events
     {
         public bool IsOpen { get; set; }
         public int Id { get; set; }
+        public  string Message { get; set; }
+        public NotificationType NotificationType { get; set; }
     }
 }
