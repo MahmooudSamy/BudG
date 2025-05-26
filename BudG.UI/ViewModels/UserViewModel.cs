@@ -17,33 +17,33 @@ using System.Windows.Media.Imaging;
 
 namespace BudG.UI.ViewModels
 {
-    public class UserViewModel : ViewModelBase, IUserViewModel
+    public class UserViewModel : DetailsViewModelBase, IUserViewModel
     {
         private IUserReposetry _userReposetry;
-        private IEventAggregator _eventAggregator;
+       
         private UserWrapper _user;
         private bool _haschanges;
       
         public UserViewModel(IUserReposetry userReposetry, IEventAggregator eventAggregator)
+            :base(eventAggregator)
         {
             _userReposetry = userReposetry;
-            _eventAggregator = eventAggregator;
-            SaveCommand = new DelegateCommand(OnSaveExecute, OnSaveCanExecute);
         }
       
-        private bool OnSaveCanExecute()
+        protected override  bool OnSaveCanExecute()
         {
             
             return UserWrapper != null && !UserWrapper.HasErrors && HasChanges  ;
         }
 
-        private async void OnSaveExecute()
+        protected override async void OnSaveExecute()
         {
             try
             {
                 UserWrapper.Password=UserWrapper.Password.ToHashSomeText();
                 UserWrapper.ProfilePicture = getJPGFromImageControl(null);
                 await _userReposetry.SaveAsync();
+
                 _eventAggregator.GetEvent<OpenPopupsEvent>().Publish(new OpenPopupsEventArgs
                 {
                     IsOpen = true,
@@ -122,7 +122,7 @@ namespace BudG.UI.ViewModels
             }
         }
 
-        public async Task LoadAsync(int? Userid)
+        public override async Task LoadAsync(int? Userid)
         {
             var user = Userid.HasValue
               ? await _userReposetry.GetAsyncById(Userid.Value)
@@ -163,23 +163,10 @@ namespace BudG.UI.ViewModels
             return user;
         }
 
-        public bool HasChanges
+        protected override void OnDeleteCommand()
         {
-            get { return _haschanges; }
-            set
-            {
-                if (_haschanges != value)
-                {
-                    _haschanges = value;
-                    OnPropertyChanged();
-                    ((DelegateCommand)SaveCommand).RaiseCanExecuteChanged();
-                }
-
-            }
+            throw new NotImplementedException();
         }
-       
-
-       
 
         public UserWrapper UserWrapper
         {
@@ -187,6 +174,6 @@ namespace BudG.UI.ViewModels
             set { _user = value; OnPropertyChanged(); }
         }
 
-        public ICommand SaveCommand { get; }
+     
     }
 }

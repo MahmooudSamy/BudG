@@ -20,20 +20,13 @@ namespace BudG.UI.ViewModels
             DeleteCommand = new DelegateCommand(OnDeleteCommand);
         }
 
-        private void OnDeleteCommand()
-        {
-            throw new NotImplementedException();
-        }
+        protected abstract void OnDeleteCommand();
 
-        private bool OnSaveCanExecute()
-        {
-            throw new NotImplementedException();
-        }
 
-        private void OnSaveExecute()
-        {
-            throw new NotImplementedException();
-        }
+        protected abstract bool OnSaveCanExecute();
+
+        protected abstract void OnSaveExecute();
+        
 
         public bool HasChanges
         {
