@@ -3,29 +3,26 @@ using BudG.Domain;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Threading.Tasks;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+
 
 namespace BudG.DataAccess.Repositories.Classes
 {
-    public class UserReposetry : IDisposable , IUserReposetry
+    public class UserReposetry : GenericReposetry<User, BudGDbContext>, IDisposable , IUserReposetry
     {
-        private BudGDbContext _context;
-
-        public UserReposetry(BudGDbContext budGDbContext)
+        
+        public UserReposetry(BudGDbContext budGDbContext):
+            base(budGDbContext)
         {
-            _context = budGDbContext;
+            
         }
-        public void Add(User user)
-        {
-            _context.Users.Add(user);
-        }
+       
 
         public async Task<User> GetAsyncByEmail(string email)
         {
             return await _context.Users.SingleOrDefaultAsync(u => u.Email == email);
         }
 
-        public async Task<User> GetAsyncById(int userId)
+        public override async Task<User> GetAsyncById(int userId)
         {
             return await _context.Users.AsNoTracking().SingleOrDefaultAsync(u => u.UserId == userId);
         }
@@ -40,20 +37,11 @@ namespace BudG.DataAccess.Repositories.Classes
         {
             return await _context.Users.AsNoTracking().FirstOrDefaultAsync();
         }
-        public bool HasChanges()
-        {
-            return _context.ChangeTracker.HasChanges();
-        }
+       
 
-        public void Remove(User user)
-        {
-            _context.Users.Remove(user);
-        }
+        
 
-        public async Task SaveAsync()
-        {
-            await _context.SaveChangesAsync();
-        }
+        
 
 
         public void Dispose()

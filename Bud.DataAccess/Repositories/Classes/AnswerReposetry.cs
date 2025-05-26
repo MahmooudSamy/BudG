@@ -6,19 +6,17 @@ using System.Threading.Tasks;
 
 namespace BudG.DataAccess.Repositories.Classes
 {
-    public class AnswerReposetry : IDisposable , IAnswerReposetry
+    public class AnswerReposetry : GenericReposetry<Answer, BudGDbContext>, IDisposable , IAnswerReposetry
     {
-        private BudGDbContext _context;
+        
 
-        public AnswerReposetry(BudGDbContext budGDbContext)
+        public AnswerReposetry(BudGDbContext budGDbContext):
+              base(budGDbContext)
         {
-            _context = budGDbContext;
+            
         }
 
-        public void Add(Answer answer)
-        {
-            _context.Answers.Add(answer);
-        }
+     
 
         public async Task<Answer> CheckAnswerAsyncByAnswer(string answer)
         {
@@ -31,19 +29,9 @@ namespace BudG.DataAccess.Repositories.Classes
             return await _context.Answers.SingleOrDefaultAsync(a =>  a.UserId == userId);
         }
 
-        public bool HasChanges()
+        public override async Task<Answer> GetAsyncById(int Id)
         {
-            return _context.ChangeTracker.HasChanges();
-        }
-
-        public void Remove(Answer answer)
-        {
-            _context.Answers.Remove(answer);
-        }
-
-        public async Task SaveAsync()
-        {
-           await _context.SaveChangesAsync();
+            return await _context.Answers.SingleOrDefaultAsync(a => a.AnswerId == Id);
         }
         public void Dispose()
         {

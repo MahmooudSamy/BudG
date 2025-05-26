@@ -3,13 +3,10 @@ using System.Threading.Tasks;
 
 namespace BudG.DataAccess.Repositories.Interface
 {
-    public interface IAnswerReposetry
+    public interface IAnswerReposetry:IGenericReposetry<Answer>
     {
         Task<Answer> GetAsyncAnswerByUserId(int userId);
         Task<Answer> CheckAnswerAsyncByAnswer(string answer);
-        Task SaveAsync();
-        bool HasChanges();
-        void Add(Answer answer);
-        void Remove(Answer answer);
+        
     }
 }

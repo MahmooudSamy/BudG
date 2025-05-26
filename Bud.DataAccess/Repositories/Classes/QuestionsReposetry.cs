@@ -5,38 +5,23 @@ using System.Threading.Tasks;
 
 namespace BudG.DataAccess.Repositories.Classes
 {
-    public class QuestionsReposetry : IDisposable ,IQuestionsReposetry
+    public class QuestionsReposetry : GenericReposetry<Question, BudGDbContext>, IDisposable ,IQuestionsReposetry
     {
-        private BudGDbContext _context;
+       
 
-        public QuestionsReposetry(BudGDbContext budGDbContext)
+        public QuestionsReposetry(BudGDbContext budGDbContext):
+            base(budGDbContext)
         {
-            _context = budGDbContext;
+           
         }
-        public void Add(Question question)
+        
+
+        public override Task<Question> GetAsyncById(int questionId)
         {
             throw new NotImplementedException();
         }
 
-        public Task<Question> GetAsyncById(int questionId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool HasChanges()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Remove(Question question)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task SaveAsync()
-        {
-            throw new NotImplementedException();
-        }
+        
 
         public void Dispose()
         {
