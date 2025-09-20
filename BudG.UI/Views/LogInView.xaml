@@ -26,10 +26,11 @@
 
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="2" Text="Welcome back" TextAlignment="Center" FontWeight="Bold" 
-                           Style="{DynamicResource MaterialDesignHeadline3TextBlock}"/>
-        <TextBlock Grid.Row="3" Text="Welcome back! Please enter your details" TextAlignment="Center"  
-                           Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
+        
+        <TextBlock Grid.Row="2" Text="Welcome back" Foreground="#1C2128"  TextAlignment="Center" 
+                           Style="{ StaticResource MyCustomHeadlineStyle}"/>
+        <TextBlock Grid.Row="3"  FontSize="19" Foreground="#5A6474" Text="Welcome back! Please enter your details" TextAlignment="Center"  
+                           Style="{DynamicResource MyCustomBodylineStyle}" />
 
         <TextBox Grid.Row="5" Height="60" Width="400" FontSize="18" materialDesign:HintAssist.Hint="UserName" 
                BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" 

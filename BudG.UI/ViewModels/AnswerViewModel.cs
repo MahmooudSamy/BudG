@@ -136,8 +136,11 @@ namespace BudG.UI.ViewModels
             return answer;
         }
 
-       
-       
+        public Task LoadAsync(int? id)
+        {
+            throw new NotImplementedException();
+        }
+
         public AnswerWrapper AnswerWrapper
         {
             get { return _answer; }

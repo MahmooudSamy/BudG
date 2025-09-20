@@ -131,7 +131,7 @@
                     <TranslateTransform X="0"/>
                 </materialDesign:Card.RenderTransform>
 
-                <UserControl:SignUpView x:Name="ViewCreateAccount" DataContext="{Binding UserViewModel}"/>
+                <UserControl:SignUpView x:Name="ViewCreateAccount" DataContext="{Binding GenericViewModel}"/>
             </materialDesign:Card>
             <materialDesign:Card x:Name="SignUpPart" Grid.Column="1" UniformCornerRadius="10" Background="#FF0099CC">
                 <materialDesign:Card.RenderTransform>

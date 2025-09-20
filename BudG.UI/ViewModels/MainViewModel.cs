@@ -25,7 +25,7 @@ namespace BudG.UI.ViewModels
         //feilds
         private ILogInViewModel _loginviewmodel;
         private IEventAggregator _eventAggregator;
-        private IUserViewModel _userViewModel;
+        private IGenericViewModel _genericViewModel;
         private IAnswerViewModel _answerViewModel;
         private INotificationViewModel _NotificationViewModel;
         private Page _navigateToPageInFrame;
@@ -105,8 +105,8 @@ namespace BudG.UI.ViewModels
         private void OnOpenCreateAccCommand()
         {
             //  MessageBox.Show("Done");
-            UserViewModel = _userViewModelCreator();
-            UserViewModel.LoadAsync(null);
+            GenericViewModel = _userViewModelCreator();
+            GenericViewModel.LoadAsync(null);
         }
 
         public async Task Load()
@@ -128,10 +128,10 @@ namespace BudG.UI.ViewModels
             set { _loginviewmodel = value; OnPropertyChanged(); }
         }
 
-        public IUserViewModel UserViewModel
+        public IGenericViewModel GenericViewModel
         {
-            get { return _userViewModel; }
-            set { _userViewModel = value; OnPropertyChanged(); }
+            get { return _genericViewModel; }
+            set { _genericViewModel = value; OnPropertyChanged(); }
         }
 
 

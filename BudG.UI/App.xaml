@@ -5,12 +5,49 @@
              xmlns:local="clr-namespace:BudG.UI"
               Startup="Application_Startup" DispatcherUnhandledException="Application_DispatcherUnhandledException">
     <Application.Resources>
+        
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
 
                 <materialDesign:BundledTheme BaseTheme="Light" PrimaryColor="DeepPurple" SecondaryColor="Lime" />
 
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesign2.Defaults.xaml" />
+
+                <!-- This new dictionary holds the custom font style. -->
+                <ResourceDictionary>
+                    <Style x:Key="RobotoBold" TargetType="Control">
+                        <Setter Property="FontFamily" Value="/BudG.UI;component/Fonts/Roboto-Bold.ttf#Roboto"/>
+                        <Setter Property="FontWeight" Value="Bold"/>
+                    </Style>
+
+                    <Style x:Key="RobotoMedium" TargetType="Control">
+                        <Setter Property="FontFamily" Value="/BudG.UI;component/Fonts/Roboto-Medium.ttf#Roboto"/>
+                        <Setter Property="FontWeight" Value="Medium"/>
+                    </Style>
+
+                    <Style x:Key="RobotoRegular" TargetType="Control">
+                        <Setter Property="FontFamily" Value="/BudG.UI;component/Fonts/Roboto-Regular.ttf#Roboto"/>
+                        <Setter Property="FontWeight" Value="Regular"/>
+                    </Style>
+
+                    <Style x:Key="RobotoSemiBold" TargetType="Control">
+                        <Setter Property="FontFamily" Value="/BudG.UI;component/Fonts/Roboto-SemiBold.ttf#Roboto"/>
+                        <Setter Property="FontWeight" Value="SemiBold"/>
+                    </Style>
+                    <Style x:Key="MyCustomHeadlineStyle" 
+                           TargetType="TextBlock" 
+                           BasedOn="{StaticResource MaterialDesignHeadline3TextBlock}">
+
+                        <Setter Property="FontFamily" Value="/BudG.UI;component/Fonts/Roboto-Bold.ttf#Roboto"/>
+                    </Style>
+                    <Style x:Key="MyCustomBodylineStyle" 
+        TargetType="TextBlock" 
+        BasedOn="{StaticResource MaterialDesignBody1TextBlock}">
+
+                        <Setter Property="FontFamily" Value="/BudG.UI;component/Fonts/Roboto-Regular.ttf#Roboto"/>
+                    </Style>
+                </ResourceDictionary>
+
 
                 <ResourceDictionary Source="ResourceDictianary/TextBoxStyle.xaml"/>
                 <ResourceDictionary Source="ResourceDictianary/CompoBoxStyle.xaml"/>

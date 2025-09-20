@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace BudG.UI.Interface
 {
-  public  interface IAnswerViewModel
+  public  interface IAnswerViewModel:IGenericViewModel
     {
         Task CreateEditAnswer(int userID,int? answerId);
-        bool HasChanges { get; set; }
+       
     }
 }
