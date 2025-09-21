@@ -27,19 +27,19 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         
-        <TextBlock Grid.Row="2" Text="Welcome back" Foreground="#1C2128"  TextAlignment="Center" 
+        <TextBlock Grid.Row="2" Text="Welcome back" Foreground="{StaticResource TextPrimary}"  TextAlignment="Center" 
                            Style="{ StaticResource MyCustomHeadlineStyle}"/>
-        <TextBlock Grid.Row="3"  FontSize="19" Foreground="#5A6474" Text="Welcome back! Please enter your details" TextAlignment="Center"  
+        <TextBlock Grid.Row="3"  FontSize="19" Foreground="{StaticResource TextSecondary}" Text="Welcome back! Please enter your details" TextAlignment="Center"  
                            Style="{DynamicResource MyCustomBodylineStyle}" />
 
-        <TextBox Grid.Row="5" Height="60" Width="400" FontSize="18" materialDesign:HintAssist.Hint="UserName" 
+        <TextBox Grid.Row="5" Height="60" Width="400" FontSize="18" Foreground="{StaticResource TextPrimary}" materialDesign:HintAssist.Hint="UserName" 
                BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" 
-                         materialDesign:TextFieldAssist.UnderlineBrush="#FF0099CC"
+                         materialDesign:TextFieldAssist.UnderlineBrush="{StaticResource BorderBrush}"
                  Text="{Binding UserName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                Style="{StaticResource MaterialDesignOutlinedTextBox}">
         </TextBox>
 
-        <componant:BindablePassword Grid.Row="7" Height="60" Width="400" FontSize="18" 
+        <componant:BindablePassword Grid.Row="7" Height="60" Width="400" FontSize="18"  Foreground="{StaticResource TextPrimary}"
                              materialDesign:HintAssist.Hint="Password" BorderThickness="2" 
                              BorderBrush="{DynamicResource MaterialDesignDivider}" 
                              materialDesign:TextFieldAssist.UnderlineBrush="#FF0099CC"
@@ -47,13 +47,13 @@
                             >
         </componant:BindablePassword>
 
-        <TextBlock Grid.Row="9" FontSize="20" TextAlignment="Center"  
+        <TextBlock Grid.Row="9" FontSize="20" TextAlignment="Center"  Foreground="{StaticResource PrimaryColor}"  
                          HorizontalAlignment="Left" Margin="50 0 0 0"  Style="{DynamicResource MaterialDesignBody1TextBlock}">
                     <Hyperlink Foreground="#FF0099CC"><Run Text="Forgot password"/></Hyperlink>
 
         </TextBlock>
         <Button x:Name="logIn" Content="Sign in" Background="#FF0099CC"
-                        materialDesign:ButtonAssist.CornerRadius="10" BorderBrush="#FF0099CC"  
+                        materialDesign:ButtonAssist.CornerRadius="10" BorderBrush="{StaticResource BorderBrush}"  
                         Grid.Row="11" Width="400" Height="50" Command="{Binding LogInCommand}"
                 Style="{DynamicResource MaterialDesignFlatDarkBgButton}"/>
         <Border Grid.Row="13" Height="80" Grid.ColumnSpan="2" >

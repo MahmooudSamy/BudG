@@ -25,27 +25,27 @@
             
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="2" Text="Welcome in BudG" TextAlignment="Center" FontWeight="Bold" 
-                           Style="{DynamicResource MaterialDesignHeadline3TextBlock}"/>
-        <TextBlock Grid.Row="3" Text="Create your account! And begin controling your budget" TextAlignment="Center"  
-                           Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
+        <TextBlock Grid.Row="2" Text="Welcome in BudG" Foreground="{StaticResource TextPrimary}" TextAlignment="Center" FontWeight="Bold" 
+                           Style="{StaticResource MyCustomHeadlineStyle}"/>
+        <TextBlock Grid.Row="3" Text="Create your account! And begin controling your budget" Foreground="{StaticResource TextSecondary}" TextAlignment="Center"  
+                           Style="{StaticResource MyCustomBodylineStyle}"/>
 
         <TextBox Grid.Row="5" x:Name="TxtFirstName" Height="60" Text="{Binding  UserWrapper.FirstName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
                  Width="200" Padding="8" FontSize="18" HorizontalAlignment="Left" Margin="55 0 0 0" 
                  materialDesign:HintAssist.Hint="First Name" BorderThickness="0 0 0 5" materialDesign:ValidationAssist.PopupPlacement="Top"
-                 BorderBrush="{DynamicResource MaterialDesignDivider}" 
+                 BorderBrush="{StaticResource BorderBrush}"
                  materialDesign:TextFieldAssist.UnderlineBrush="#FF0099CC"
                Style="{StaticResource MaterialDesignFloatingHintTextBox}" KeyDown="TxtFirstName_KeyDown"/>
 
         <TextBox x:Name="TxtLastName" Grid.Row="5" Height="60" Width="200" Text="{Binding UserWrapper.LastName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" FontSize="18" Padding="8" HorizontalAlignment="Right" Margin="0 0 40 0" 
                          materialDesign:HintAssist.Hint="Last Name" 
-                 BorderThickness="0 0 0 5" BorderBrush="{DynamicResource MaterialDesignDivider}" 
+                 BorderThickness="0 0 0 5" BorderBrush="{StaticResource BorderBrush}" 
                          materialDesign:TextFieldAssist.UnderlineBrush="#FF0099CC"
                Style="{StaticResource MaterialDesignFloatingHintTextBox}" KeyDown="TxtLastName_KeyDown"/>
 
         <TextBox x:Name="TxtEmail" Grid.Row="7" Height="60" Width="400" Text="{Binding  UserWrapper.Email,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" FontSize="18" 
                          materialDesign:HintAssist.Hint="Email" 
-                 BorderThickness="0 0 0 5" BorderBrush="{DynamicResource MaterialDesignDivider}" 
+                 BorderThickness="0 0 0 5" BorderBrush="{StaticResource BorderBrush}" 
                          materialDesign:TextFieldAssist.UnderlineBrush="#FF0099CC"
                Style="{StaticResource MaterialDesignFloatingHintTextBox}" KeyDown="TxtEmail_KeyDown"/>
 

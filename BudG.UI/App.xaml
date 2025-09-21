@@ -48,7 +48,18 @@
                     </Style>
                 </ResourceDictionary>
 
+                <ResourceDictionary>
+                    <SolidColorBrush x:Key="PrimaryColor" Color="#1F41BB"/>
+                    <SolidColorBrush x:Key="SecondaryColor" Color="#7C8386"/>
+                    <SolidColorBrush x:Key="Background" Color="#F5F8FD"/>
+                    <SolidColorBrush x:Key="White" Color="#F6F6F7"/>
+                    <SolidColorBrush x:Key="TextPrimary" Color="#1C2128"/>
+                    <SolidColorBrush x:Key="TextSecondary" Color="#5A6474"/>
+                    <SolidColorBrush x:Key="BorderBrush" Color="#E0E6F0"/>
+                    <SolidColorBrush x:Key="HoverBrush" Color="#4A76FF"/>
+                    <SolidColorBrush x:Key="PressedBrush" Color="#1A42A8"/>
 
+                </ResourceDictionary>
                 <ResourceDictionary Source="ResourceDictianary/TextBoxStyle.xaml"/>
                 <ResourceDictionary Source="ResourceDictianary/CompoBoxStyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
