@@ -62,6 +62,7 @@
                 </ResourceDictionary>
                 <ResourceDictionary Source="ResourceDictianary/TextBoxStyle.xaml"/>
                 <ResourceDictionary Source="ResourceDictianary/CompoBoxStyle.xaml"/>
+                <ResourceDictionary Source="ResourceDictianary/PasswordBoxStyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

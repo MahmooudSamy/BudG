@@ -29,6 +29,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="PasswordTextBox">
+      <HintPath>..\..\..\..\..\Easing tools\WPFControls\ValidationTextbox\ValidationTextBox\PasswordTextBox\bin\Debug\net8.0-windows\PasswordTextBox.dll</HintPath>
+    </Reference>
+    <Reference Include="ValidationTextBox">
+      <HintPath>..\..\..\..\..\Easing tools\WPFControls\ValidationTextbox\ValidationTextBox\ValidationTextBox\bin\Debug\net8.0-windows\ValidationTextBox.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Images\1.png" />
     <Resource Include="Images\SplashScreen1.jpg" />
     <Resource Include="Images\SplashScreen1copy.png" />

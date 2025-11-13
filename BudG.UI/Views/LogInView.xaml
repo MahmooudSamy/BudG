@@ -5,8 +5,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:BudG.UI.Views"
               xmlns:componant="clr-namespace:BudG.UI.Componant"
+              xmlns:control="clr-namespace:PasswordTextBox;assembly=PasswordTextBox"
               xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-              TextElement.Foreground="{DynamicResource MaterialDesignBody}">
+              TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             >
     <Grid x:Name="Header">
 
         <Grid.RowDefinitions>
@@ -33,19 +35,21 @@
                            Style="{DynamicResource MyCustomBodylineStyle}" />
 
         <TextBox Grid.Row="5" Height="60" Width="400" FontSize="18" Foreground="{StaticResource TextPrimary}" materialDesign:HintAssist.Hint="UserName" 
-               BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" 
-                         materialDesign:TextFieldAssist.UnderlineBrush="{StaticResource BorderBrush}"
+               BorderThickness="0" 
+                 BorderBrush="{DynamicResource MaterialDesignDivider}" 
+
+                          materialDesign:TextFieldAssist.UnderlineBrush="#FF0099CC"
                  Text="{Binding UserName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
-               Style="{StaticResource MaterialDesignOutlinedTextBox}">
+               >
         </TextBox>
 
-        <componant:BindablePassword Grid.Row="7" Height="60" Width="400" FontSize="18"  Foreground="{StaticResource TextPrimary}"
-                             materialDesign:HintAssist.Hint="Password" BorderThickness="2" 
+        <control:TogglePasswordBox Style="{DynamicResource TogglePasswordBoxStyle}" Grid.Row="7" Height="60" Width="400" FontSize="18"  Foreground="{StaticResource TextPrimary}"
+                             BorderThickness="0" 
                              BorderBrush="{DynamicResource MaterialDesignDivider}" 
                              materialDesign:TextFieldAssist.UnderlineBrush="#FF0099CC"
                       Password="{Binding Password,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                             >
-        </componant:BindablePassword>
+        </control:TogglePasswordBox>
 
         <TextBlock Grid.Row="9" FontSize="20" TextAlignment="Center"  Foreground="{StaticResource PrimaryColor}"  
                          HorizontalAlignment="Left" Margin="50 0 0 0"  Style="{DynamicResource MaterialDesignBody1TextBlock}">

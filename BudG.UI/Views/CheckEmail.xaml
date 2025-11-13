@@ -3,6 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                     xmlns:custom="clr-namespace:ValidationTextBox;assembly=ValidationTextBox"
+
              xmlns:local="clr-namespace:BudG.UI.Views"
              mc:Ignorable="d" 
               xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
@@ -37,14 +39,14 @@
                    TextAlignment="Center" Style="{DynamicResource MyCustomBodylineStyle}" />
 
         <!-- Email Input -->
-        <TextBox Grid.Row="5" Height="60" Width="400" FontSize="18" 
+        <custom:TextBoxValidation Grid.Row="5" Height="60" Width="400" FontSize="18" 
                  Foreground="{StaticResource TextPrimary}"
-                 materialDesign:HintAssist.Hint="Email Address"
+                 materialDesign:HintAssist.Hint="Email Address" 
                  BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}"
                  materialDesign:TextFieldAssist.UnderlineBrush="{StaticResource BorderBrush}"
                 
                  Style="{StaticResource MaterialDesignOutlinedTextBox}">
-        </TextBox>
+        </custom:TextBoxValidation>
 
         <!-- Reset Button -->
         <Button x:Name="ResetPasswordButton" Content="Check the email" 
