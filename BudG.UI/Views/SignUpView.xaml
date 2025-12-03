@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
                xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:componant="clr-namespace:BudG.UI.Componant"
+              xmlns:control="clr-namespace:PasswordTextBox;assembly=PasswordTextBox"
              mc:Ignorable="d" x:Name="CreateNewAccountView" Loaded="CreateNewAccountView_Loaded"
              >
     <Grid>
@@ -57,13 +58,13 @@
                                     BorderThickness="0 0 0 5"
                                     Margin="55 0 0 0" 
                        Text="{Binding UserWrapper.UserName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" KeyDown="TxtUserName_KeyDown"/>
-        
-        <componant:BindablePassword x:Name="TxtPassword" Grid.Row="9" Height="60" Width="200" FontSize="18" HorizontalAlignment="Right" 
-                                    Margin="0 0 40 0" materialDesign:HintAssist.Hint="Password" 
-                BorderThickness="0 0 0 5" BorderBrush="{DynamicResource MaterialDesignDivider}"
-                                    
-                         materialDesign:TextFieldAssist.UnderlineBrush="#FF0099CC"
-               Password="{Binding  UserWrapper.Password,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" KeyDown="TxtPassword_KeyDown"/>
+
+        <control:TogglePasswordBox x:Name="TxtPassword" Grid.Row="9" Height="60" Width="200" FontSize="18" HorizontalAlignment="Right" 
+                            Margin="0 0 40 0" 
+        BorderThickness="0 0 0 5" BorderBrush="{DynamicResource MaterialDesignDivider}"
+                            
+                 materialDesign:TextFieldAssist.UnderlineBrush="#FF0099CC"
+       Password="{Binding  UserWrapper.Password,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" KeyDown="TxtPassword_KeyDown"/>
 
        
 

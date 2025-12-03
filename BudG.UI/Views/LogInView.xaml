@@ -47,9 +47,8 @@
                              BorderThickness="0" 
                              BorderBrush="{DynamicResource MaterialDesignDivider}" 
                              materialDesign:TextFieldAssist.UnderlineBrush="#FF0099CC"
-                      Password="{Binding Password,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
-                            >
-        </control:TogglePasswordBox>
+                      Password="{Binding Password,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+
 
         <TextBlock Grid.Row="9" FontSize="20" TextAlignment="Center"  Foreground="{StaticResource PrimaryColor}"  
                          HorizontalAlignment="Left" Margin="50 0 0 0"  Style="{DynamicResource MaterialDesignBody1TextBlock}">
